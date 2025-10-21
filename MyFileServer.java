@@ -8,12 +8,19 @@ import java.util.stream.Collectors;
 
 /**
  * @author: Sean Idisi
- * @version: 2.0
+ * @version: 3.0
+ */
+
+/**
+ * This Solution took me 40 minutes to think off and i am really proud of this
+ * solution
+ *
+ * That being said this solution only got 51/52 for the test cases because
  * 
- *           This solution took me 40 minutes to think off and i am really proud
- *           of it
- *           I do believe that this solution is complicated but logically it
- *           makes sense to me
+ * If you understand this alogithm and the crazy ideas that flow into my head
+ * you understand that testMultiThread3() will never pass all tests cases if you
+ * write out what happens on paper it is impossible unless line number 656 gets
+ * commented out.
  */
 
 class FileObject extends FileFrame {
