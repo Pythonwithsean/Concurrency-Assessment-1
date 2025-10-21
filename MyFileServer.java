@@ -28,10 +28,10 @@ class FileObject extends FileFrame {
     private MyFile fileRef;
 
     public FileObject(String fileName, String content, Mode mode, MyFile fileRef) {
+        super(null, mode);
         this.fileName = fileName;
         this.fileRef = fileRef;
         // I do not need the content on the fileObject just the fileRef
-        super(null, mode);
     }
 
     public String getFileName() {
@@ -101,6 +101,7 @@ class MyFile extends File {
 
 public class MyFileServer implements FileServer {
 
+    // TODO: Refactor to use less MEMORY!!!!!
     private List<AtomicInteger> readers;
     private List<AtomicInteger> writers;
     private List<FileObject> files;
