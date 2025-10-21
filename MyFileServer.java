@@ -128,12 +128,19 @@ public class MyFileServer implements FileServer {
         this.enList.add(new Semaphore(1));
     }
 
-    // TODO: Change this to binary search to optimise search speed
     public Integer getFileIndex(String fileName) {
-        for (int i = 0; i < files.size(); i++) {
-            FileObject fObj = this.files.get(i);
-            if (fObj.getFileName().equals(fileName)) {
-                return i;
+        int l = 0;
+        int r = files.size() - 1;
+        files.sort((a, b) -> a.getFileName().compareTo(b.getFileName()));
+        while (l <= r) {
+            int mid = (r + l) / 2;
+            int comp = files.get(mid).getFileName().compareTo(fileName);
+            if (comp == 0) {
+                return mid;
+            } else if (comp < 0) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
             }
         }
         return -1;
